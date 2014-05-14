@@ -37,7 +37,7 @@
   
   window.Scope = {
     defineScope: defineScope,
-    runScope: runScope;
+    runScope: runScope
   }
   
   window.addEventListener('DOMContentLoaded', function() {
