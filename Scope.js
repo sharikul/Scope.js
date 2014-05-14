@@ -1,7 +1,7 @@
 (function() {
   
   var scopes = {},
-      forEach = [].forEach.call;
+      forEach = [].forEach;
   
   
   function defineScope(scope, link) {
@@ -18,11 +18,11 @@
       var eScope = document.querySelectorAll('[data-scope=' + scope + ']');
       
       if(eScope.length > 0) {
-        forEach(eScope, function(Element) {
+        forEach.call(eScope, function(Element) {
           var All = Element.querySelectorAll('*');
           
           if(All.length > 0) {
-            forEach(All, function(subElement) {
+            forEach.call(All, function(subElement) {
               if(subElement.innerHTML.match(/{{(.*?)}}/)) {
                 subElement.innerHTML = subElement.innerHTML.replace(/{{(.*?)}}/g, function(Raw, Key) {
                   return scopes[scope][Key] ? scopes[scope][Key]: Raw;
@@ -41,7 +41,7 @@
   }
   
   window.addEventListener('DOMContentLoaded', function() {
-    forEach(scopes, function(scope) {
+    forEach.call(scopes, function(scope) {
       runScope(scope);
     });
   });
