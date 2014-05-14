@@ -25,7 +25,7 @@
             forEach.call(All, function(subElement) {
               if(subElement.innerHTML.match(/{{(.*?)}}/)) {
                 subElement.innerHTML = subElement.innerHTML.replace(/{{(.*?)}}/g, function(Raw, Key) {
-                  return scopes[scope][Key] ? scopes[scope][Key]: Raw;
+                  return scopes[scope][Key.trim()] ? scopes[scope][Key.trim()]: Raw;
                 });
               }
             });
