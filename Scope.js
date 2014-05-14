@@ -32,7 +32,7 @@
           }
           
           else {
-            All[0].innerHTML = All[0].innerHTML.replace(/{{(.*?)}}/g, function(Raw, Key) {
+            Element.innerHTML = Element.innerHTML.replace(/{{(.*?)}}/g, function(Raw, Key) {
                   return scopes[scope][Key.trim()] ? scopes[scope][Key.trim()]: Raw;
             });
           }
